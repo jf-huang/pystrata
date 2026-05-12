@@ -467,8 +467,9 @@ class FourierAmplitudeSpectrumOutput(LocationBasedOutput):
     ylabel = "Fourier Ampl. (cm/s)"
 
     ref_name = "freq"
-
-    def __init__(self, freqs, location, ko_bandwidth=30):
+    # Make None the default, so that the default will be not applying smoothing. 
+    # This is to make calling this output "cleaner". 
+    def __init__(self, freqs, location, ko_bandwidth=None):
         super().__init__(freqs, location)
         self._ko_bandwidth = ko_bandwidth
 
